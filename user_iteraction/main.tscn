@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://addons/balloon/balloon.gd" type="Script" id=4]
+[ext_resource path="res://addons/balloon/assets/icon_balloon.png" type="Texture" id=5]
+[ext_resource path="res://addons/balloon/assets/balloon.theme" type="Theme" id=6]
+
+[node name="main" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="info" type="Label" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 79.0
+margin_top = 17.0
+margin_right = 964.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Timer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 0.3
+one_shot = true
+autostart = false
+
+[node name="Panel" type="Panel" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 68.0
+margin_right = 583.0
+margin_bottom = 461.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 570.0
+margin_bottom = 387.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_colors/default_color = Color( 0.0078125, 1, 0, 1 )
+bbcode_enabled = true
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "custom_colors" ]
+
+[node name="Sprite" type="Sprite" parent="." index="3"]
+
+position = Vector2( 569, 144 )
+texture = ExtResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="Sprite" index="0"]
+
+position = Vector2( 35, 9 )
+
+[node name="Balloon Text" type="Control" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 720.0
+margin_top = 100.0
+margin_right = 905.0
+margin_bottom = 218.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Rect", "Theme" ]
+__meta__ = {
+"_editor_icon": ExtResource( 5 ),
+"type": "balloon"
+}
+text = ""
+ratio = 0.8
+font_height_adjust = 0.0
+padding = 8.0
+shadown_width = 4.0
+text_color = Color( 0, 0, 0, 1 )
+color = Color( 1, 1, 1, 1 )
+color_center = Color( 1, 1, 1, 1 )
+color_shadow = Color( 0, 0, 0, 1 )
+arrow_width = 0.25
+normal_font = ExtResource( 2 )
+lock_target = NodePath("../Sprite/Position2D")
+words_per_minute = 200
+typewriter = false
+auto_hide = true
+bubble_effect = true
+balloon_material = null
+text_material = null
+script_path = null
+ui_theme = ExtResource( 6 )
+show_debug_messages = false
+
+[connection signal="timeout" from="Timer" to="." method="run"]
+
+

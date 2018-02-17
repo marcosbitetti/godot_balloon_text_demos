@@ -1,0 +1,356 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://landscape.png" type="Texture" id=1]
+[ext_resource path="res://Pepper publish..png" type="Texture" id=2]
+[ext_resource path="res://addons/balloon/balloon.gd" type="Script" id=3]
+[ext_resource path="res://addons/balloon/assets/icon_balloon.png" type="Texture" id=4]
+[ext_resource path="res://font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://addons/balloon/assets/balloon.theme" type="Theme" id=6]
+[ext_resource path="res://coriander publish..png" type="Texture" id=7]
+[ext_resource path="res://02.png" type="Texture" id=8]
+[ext_resource path="res://balloon1.material" type="Material" id=9]
+[ext_resource path="res://red_drapes.png" type="Texture" id=10]
+
+[sub_resource type="Animation" id=1]
+
+length = 29.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("dragon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 12.8, 13.8, 18, 18.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1236.97, 113.562 ), Vector2( 1236.97, 113.562 ), Vector2( 900.565, 113.562 ), Vector2( 900.565, 113.562 ), Vector2( 1236.97, 113.562 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Pepper/Pepper_Balloon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3, 5.4, 11.7, 18.6, 21.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "Hi! I'm Pepper!" ],
+"method": "say"
+}, {
+"args": [ "We just here to show to you this plugin." ],
+"method": "say"
+}, {
+"args": [ "Make a simple dialog with two chars fun." ],
+"method": "say"
+}, {
+"args": [ "By the way, you want a cool webcomic?" ],
+"method": "say"
+}, {
+"args": [ "See my site, the link is on top of this screen." ],
+"method": "say"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Coriander/Coriander_Balloon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 4, 9, 25.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ "And I'm Coriander!" ],
+"method": "say"
+}, {
+"args": [ "It's give you a visual of comics." ],
+"method": "say"
+}, {
+"args": [ "Enjoy!" ],
+"method": "say"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("dragon/dragon_Balloon2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 14.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "And support a lot of effects... grhhhhhhh" ],
+"method": "say"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("curtain:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.5, 26.7, 27.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -600 ), Vector2( 0, -600 ), Vector2( 0, 0 ) ]
+}
+
+[node name="main" type="Node" index="0"]
+
+[node name="TextureRect" type="TextureRect" parent="." index="0"]
+
+modulate = Color( 0.585938, 0.585938, 0.585938, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1026.0
+margin_bottom = 602.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 0
+
+[node name="Pepper" type="Sprite" parent="." index="1"]
+
+position = Vector2( 862.892, 437.892 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Pepper_Balloon" type="Control" parent="Pepper" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -107.0
+margin_top = -60.0
+margin_right = -77.0
+margin_bottom = -44.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_icon": ExtResource( 4 ),
+"type": "balloon"
+}
+text = "."
+ratio = 0.74
+font_height_adjust = 0.0
+padding = 8.0
+shadown_width = 4.0
+text_color = Color( 0, 0, 0, 1 )
+color = Color( 1, 1, 1, 1 )
+color_center = Color( 1, 1, 1, 1 )
+color_shadow = Color( 0, 0, 0, 1 )
+arrow_width = 0.25
+normal_font = ExtResource( 5 )
+lock_target = NodePath("Position2D")
+words_per_minute = 160
+typewriter = false
+auto_hide = true
+bubble_effect = false
+balloon_material = null
+text_material = null
+script_path = null
+ui_theme = ExtResource( 6 )
+show_debug_messages = false
+
+[node name="Position2D" type="Position2D" parent="Pepper" index="1"]
+
+position = Vector2( -18.8282, 17.9275 )
+
+[node name="Coriander" type="Sprite" parent="." index="2"]
+
+position = Vector2( 176, 418 )
+scale = Vector2( -3, 3 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Position2D" type="Position2D" parent="Coriander" index="0"]
+
+position = Vector2( -19.1582, 17.274 )
+
+[node name="Coriander_Balloon" type="Control" parent="Coriander" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -63.0
+margin_top = -54.0
+margin_right = -33.0
+margin_bottom = -38.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 3 )
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_editor_icon": ExtResource( 4 ),
+"type": "balloon"
+}
+text = "."
+ratio = 0.74
+font_height_adjust = 10.0
+padding = 8.0
+shadown_width = 4.0
+text_color = Color( 0, 0, 0, 1 )
+color = Color( 1, 1, 1, 1 )
+color_center = Color( 1, 1, 1, 1 )
+color_shadow = Color( 0, 0, 0, 1 )
+arrow_width = 0.25
+normal_font = ExtResource( 5 )
+lock_target = NodePath("Position2D")
+words_per_minute = 160
+typewriter = false
+auto_hide = true
+bubble_effect = false
+balloon_material = null
+text_material = null
+script_path = null
+ui_theme = ExtResource( 6 )
+show_debug_messages = false
+
+[node name="dragon" type="Sprite" parent="." index="3"]
+
+position = Vector2( 900.565, 113.562 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="dragon_Balloon2" type="Control" parent="dragon" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -325.0
+margin_top = 8.0
+margin_right = -255.0
+margin_bottom = 46.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_icon": ExtResource( 4 ),
+"type": "balloon"
+}
+text = ""
+ratio = 0.74
+font_height_adjust = 10.0
+padding = 8.0
+shadown_width = 1.0
+text_color = Color( 0.9646, 1, 0.546875, 1 )
+color = Color( 0.75, 0, 0, 1 )
+color_center = Color( 0.683594, 0.482592, 0.136185, 1 )
+color_shadow = Color( 0.863294, 0.455457, 0.256287, 1 )
+arrow_width = 0.25
+normal_font = ExtResource( 5 )
+lock_target = NodePath("Position2D")
+words_per_minute = 120
+typewriter = false
+auto_hide = true
+bubble_effect = false
+balloon_material = ExtResource( 9 )
+text_material = null
+script_path = null
+ui_theme = ExtResource( 6 )
+show_debug_messages = false
+
+[node name="Position2D" type="Position2D" parent="dragon" index="1"]
+
+position = Vector2( -30.7297, 10.2991 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 12.0
+margin_right = 311.0
+margin_bottom = 183.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = "Sprites by: [url=https://opengameart.org/content/24x32-peppercarrot-characters]diamonddmgirl[/url]
+Based on webcomic [url=https://www.peppercarrot.com/0_sources/0ther/misc/hi-res/2016-02-25_characters-lineart_by-David-Revoy.jpg]Pepper&Carrot[/url] and on \"Characters Lineart\" by David Revoy, CC-by.
+
+Background by [url=https://opengameart.org/content/landscape]PepperRaccon[/url]
+
+Dragon Portrait by [url=https://opengameart.org/content/dragon-portrait]pocok[/url]
+
+Red Curtain by [url=https://opengameart.org/content/drapes]AntumDeluge[/url]"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Sprites by: diamonddmgirl
+Based on webcomic Pepper&Carrot and on \"Characters Lineart\" by David Revoy, CC-by.
+
+Background by PepperRaccon
+
+Dragon Portrait by pocok
+
+Red Curtain by AntumDeluge"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode" ]
+
+[node name="animation" type="AnimationPlayer" parent="." index="5"]
+
+root_node = NodePath("..")
+autoplay = "main"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/main = SubResource( 1 )
+blend_times = [  ]
+
+[node name="curtain" type="TextureRect" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -600.0
+margin_right = 1024.0
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+

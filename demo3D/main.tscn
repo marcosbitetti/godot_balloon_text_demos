@@ -1,0 +1,190 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://floor.png" type="Texture" id=2]
+[ext_resource path="res://Godette.tscn" type="PackedScene" id=3]
+[ext_resource path="res://hi.anim" type="Animation" id=4]
+[ext_resource path="res://jump.anim" type="Animation" id=5]
+[ext_resource path="res://pose1.anim" type="Animation" id=6]
+[ext_resource path="res://stand.anim" type="Animation" id=7]
+[ext_resource path="res://addons/balloon/balloon.gd" type="Script" id=8]
+[ext_resource path="res://addons/balloon/assets/icon_balloon.png" type="Texture" id=9]
+[ext_resource path="res://fot.tres" type="DynamicFont" id=10]
+[ext_resource path="res://addons/balloon/assets/balloon.theme" type="Theme" id=11]
+
+[sub_resource type="SpatialMaterial" id=1]
+
+render_priority = 0
+flags_transparent = true
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.78125, 0.78125, 0.78125, 1 )
+albedo_texture = ExtResource( 2 )
+metallic = 0.0
+metallic_specular = 0.0
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+
+[sub_resource type="PlaneMesh" id=2]
+
+material = SubResource( 1 )
+size = Vector2( 5, 5 )
+subdivide_width = 0
+subdivide_depth = 0
+
+[node name="main" type="Spatial" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="." index="0"]
+
+transform = Transform( 0.918431, -0.0274499, 0.394628, 0, 0.997589, 0.0693913, -0.395581, -0.0637311, 0.916217, 3.94597, 3.01621, 3.83941 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
+
+[node name="floor" type="MeshInstance" parent="." index="1"]
+
+transform = Transform( 0.679328, 0, 0.733835, 0, 1, 0, -0.733835, 0, 0.679328, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "LOD" ]
+
+[node name="Armature" parent="floor" index="0" instance=ExtResource( 3 )]
+
+[node name="Skeleton" parent="floor/Armature" index="0"]
+
+bones/4/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" type="BoneAttachment" parent="floor/Armature/Skeleton" index="0"]
+
+transform = Transform( 1, -2.53523e-11, -3.09313e-11, -2.60639e-11, 0.144541, -0.989499, 3.04498e-11, 0.989499, 0.144542, 1.29761e-09, 2.82857, 0.0597797 )
+bone_name = "head"
+
+[node name="Position3D" type="Position3D" parent="floor/Armature/Skeleton/BoneAttachment" index="0"]
+
+transform = Transform( 1, 0, 5.96046e-08, -1.49012e-07, 1, 2.5332e-07, 2.01166e-07, -1.93715e-07, 1, 0.75714, 0.249519, -0.302074 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+
+root_node = NodePath("..")
+autoplay = "stand"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/hi = ExtResource( 4 )
+anims/jump = ExtResource( 5 )
+anims/pose1 = ExtResource( 6 )
+anims/stand = ExtResource( 7 )
+blend_times = [  ]
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 3.4
+one_shot = false
+autostart = true
+
+[node name="Balloon Text" type="Control" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 630.0
+margin_top = 182.0
+margin_right = 754.0
+margin_bottom = 306.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 8 )
+__meta__ = {
+"_editor_icon": ExtResource( 9 )
+}
+text = "Ji folks!"
+ratio = 1.0
+font_height_adjust = 8.0
+padding = 8.0
+shadown_width = 8.0
+text_color = Color( 0, 0, 0, 1 )
+color = Color( 1, 1, 1, 1 )
+color_center = Color( 1, 1, 1, 1 )
+color_shadow = Color( 0, 0, 0, 1 )
+arrow_width = 0.25
+normal_font = ExtResource( 10 )
+lock_target = NodePath("floor/Armature/Skeleton/BoneAttachment/Position3D")
+words_per_minute = 180
+typewriter = false
+auto_hide = true
+bubble_effect = false
+balloon_material = null
+text_material = null
+script_path = null
+ui_theme = ExtResource( 11 )
+show_debug_messages = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+
+[editable path="floor/Armature"]

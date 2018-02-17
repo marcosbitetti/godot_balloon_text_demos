@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Pepper publish..png-97f57b159c5a56b96f632d82e4728678.stex"
+
+[deps]
+
+source_file="res://Pepper publish..png"
+source_md5="2ed4111b76d200cf145f123d607c7414"
+
+dest_files=[ "res://.import/Pepper publish..png-97f57b159c5a56b96f632d82e4728678.stex" ]
+dest_md5="2217095d45258867ea0d0187862d3ee5"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
